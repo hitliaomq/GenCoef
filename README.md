@@ -10,9 +10,9 @@ Here, $\Delta E $ is the energy difference between the deformed structure and un
 
 $V_0​$ is the volume of undeformed structure
 
-$\eta$ is the Lagrangeian strain
+$\eta​$ is the Lagrangeian strain
 
-[Download](https://github.com/hitliaomq/GenCoef)
+[Download from GitHub](https://github.com/hitliaomq/GenCoef)
 
 ## Usage
 
