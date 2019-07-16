@@ -8,9 +8,11 @@ $\Delta E/V_0 = A_2\eta^2 + A_3\eta^3$
 
 Here, $\Delta E $ is the energy difference between the deformed structure and undeformed structure
 
-$V_0$ is the volume of undeformed structure
+$V_0​$ is the volume of undeformed structure
 
 $\eta$ is the Lagrangeian strain
+
+[Download](https://github.com/hitliaomq/GenCoef)
 
 ## Usage
 
