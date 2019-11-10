@@ -57,7 +57,7 @@ print(StrainMode)
 
 If you use this scripts, please ref the following reference
 
-Mingqing Liao, Yong Liu, Fei Zhou, Nan Qu et.al. Strain patterns for calculating third-order elastic constants of all crystal classes from first principles, submitted to *physica status solidi (b) – basic solid state physics*
+Mingqing Liao, Yong Liu, Yichuan Chen, Fei Zhou, et.al. Strain patterns for calculating third-order elastic constants of all crystal classes from first principles, submitted to *physica status solidi (b) – basic solid state physics*
 
 In addition, when coding this script, the following reference are ref-ed.
 
