@@ -13,7 +13,7 @@ import symmetry
 #Generate the coefficients for specific strain patterns and crystal type
 CrystalType = 'c1'
 Ord = 3
-Strain = np.array([[1, 0, 0, 2, 2, 0]])
+Strain = np.array([[1, 0, 0, 0, 0, 0]])
 
 (Cijk, StrainModeCoef, StrainMode) = symmetry.CoefForSingleMode(CrystalType, Ord, Strain)
 print(StrainMode)
