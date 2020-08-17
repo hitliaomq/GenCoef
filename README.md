@@ -2,7 +2,9 @@
 
 ## Introduction
 
-This is a python script to generate the coefficients($A_2$ and $A_3$ in the following fomular) for calculating the Third-Order Elastic Constants(TOECs) using first principles calculations.
+This is a python script to generate the coefficients($A_2$ and $A_3$ in the following fomular) for calculating the Third-Order Elastic Constants(TOECs) using first principles calculations by strain-energy method or strain-stress method.
+
+Strain-energy method
 
 $\Delta E/V_0 = A_2\eta^2 + A_3\eta^3$ 
 
@@ -11,6 +13,10 @@ Here, $\Delta E $ is the energy difference between the deformed structure and un
 $V_0​$ is the volume of undeformed structure
 
 $\eta​$ is the Lagrangeian strain
+
+Strain-stress method
+
+$t = A_2\eta + A_3\eta^2$
 
 [Download from GitHub](https://github.com/hitliaomq/GenCoef)
 
@@ -53,17 +59,26 @@ Strain = np.array([[1, 0, 0, 2, 2, 0]])
 print(StrainMode)
 ```
 
+For more usage, please ref. `test_symmetry.py` and `test_optimizesm.py`
+
 ## Reference
 
 If you use this scripts, please ref the following reference
 
-Mingqing Liao, Yong Liu, Yichuan Chen, Fei Zhou, et.al. Strain patterns for calculating third-order elastic constants of all crystal classes from first principles, submitted to *physica status solidi (b) – basic solid state physics*
+[1] Mingqing Liao, Yong Liu, Fei Zhou, Tianyi Han, et al. Selection of strain and fitting schemes for calculating higher-order elastic constants, submitted to *Physical Review Letters*
+
+[2] Mingqing Liao, Yong Liu, Fei Zhou, Tianyi Han, et al. Comparison between methods for third-order elastic constants from first-principles, submitted to *Physical Review B*
 
 In addition, when coding this script, the following reference are ref-ed.
 
-The independent SOECs  and TOECs are taken from: BRUGGER K. Pure Modes for Elastic Waves in Crystals. Journal of Applied Physics, 1965,36(3):759-768.
+The independent SOECs  and TOECs are taken from: 
+[3] BRUGGER K. Pure Modes for Elastic Waves in Crystals. Journal of Applied Physics, 1965,36(3):759-768.
 
-The method for calculating  the TOECs is taken from:  ZHAO J, WINEY J M, GUPTA Y M. First-principles calculations of second- and third-order elastic constants for single crystals of arbitrary symmetry. PHYSICAL REVIEW B, 2007,75(0941059):94105.
+The method for calculating  the TOECs is taken from:  
+[4] ZHAO J, WINEY J M, GUPTA Y M. First-principles calculations of second- and third-order elastic constants for single crystals of arbitrary symmetry. PHYSICAL REVIEW B, 2007,75(0941059):94105.
+
+This code now has been a part of [Elastic3rd](https://github.com/hitliaomq/ELASTIC3rd), Please ref:
+[5] Mingqing Liao, Yong Liu, Shun-Li Shang, Fei Zhou, et al., Elastic3rd: A tool for calculating third-order elastic constants from first-principles calculations, submitted to *Computer Physics Communication*
 
 ## Author information
 

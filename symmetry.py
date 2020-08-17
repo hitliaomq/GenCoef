@@ -42,6 +42,15 @@ def gen_strain(strain_sca):
     return Strain
 
 def Num2IJK(Num, N, Ord):
+    '''
+    This function convert numbers to IJK index
+        Note: This is full, not only the independent one. e.g. for C44, the Num should be 22, not 16 (independent one)
+    #Num : The Number in base of 10
+    #N : The new base N
+    #Ord : The Order of the new number
+    #
+    #**Note:** The first number is [1111](The number is determined by Ord) not [0000]
+    '''
     IJK = np.zeros(int(Ord), dtype=int)
     for i in range(int(Ord), 0, -1):
         k = i - 1
@@ -218,6 +227,10 @@ def cijk2num(Cijk, Ord):
     #ATTENTION: here the first element is 0, not 1
     CijkAll = gen_cijall(Ord)
     CijkNum = []
+    #print(Cijk)
+    if type(Cijk) is int or type(Cijk) is float:
+        Cijk = [Cijk]
+        #print(Cijk)
     for i in Cijk:
         indexi = np.argwhere(CijkAll == i)
         CijkNum.append(indexi[0][0])
@@ -255,7 +268,7 @@ def CoefForSingleMode(CrystalType, Ord, Strain):
             StrainMode[j, :, :] = StrainM
             #print StrainM
             exec('StrainModeCoef.coef' + str(i) + '[j, :] = gen_cijk_coef(CrystalType, StrainM, i)')
-        exec('print StrainModeCoef.coef' + str(i))
+        exec('print(StrainModeCoef.coef' + str(i) + ')')
     return (Cijk, StrainModeCoef, StrainMode)
 
 def print_cijk(CrystalType, Ord):
@@ -263,7 +276,7 @@ def print_cijk(CrystalType, Ord):
     CijkInd = symdata.coef_ind(CrystalType, Ord)
     CijkUniq = np.array(symdata.get_unique(CijkInd))
     Cijk = num2cijk(CijkUniq, Ord)
-    print Cijk
+    print(Cijk)
     return Cijk
 
 class CoefStr:
@@ -273,3 +286,36 @@ class CoefStr:
     def __init__(self, Ord = 3):
         for i in range(2, int(Ord) + 1):
             exec('self.coef' + str(i) + ' = []')      
+'''
+a = np.zeros((4, 5))
+(m, n) = a.shape
+print m
+'''
+'''
+CrystalType = 'c1'
+Ord = 2
+
+(StrainModeCoef, StrainMode) = gen_strain_mode(CrystalType, Ord)
+print StrainMode
+#print StrainModeCoef.coef3
+print StrainModeCoef.coef2
+#print StrainModeCoef.coef4
+'''
+'''
+CrystalType = "c1"
+Ord = 3
+Strain = np.array([[1, 0, 0], [0, 0, 0], [0, 0, 0]])
+(Cijk, StrainModeCoef, StrainMode) = CoefForSingleMode(CrystalType, Ord, Strain)
+#print(Cijk)
+#print(StrainModeCoef)
+print(StrainMode)
+'''
+'''
+strain = np.array([[1, 0, 0], [0, 2, 2], [0, 2, 0]])
+(StrainOrd, StrainOrdCoef) = gen_strainord(strain)
+(CoefUniq, CoefUniqCoef) = gen_strain_coef(StrainOrd, StrainOrdCoef, Ord = 3)
+print(StrainOrd)
+print(StrainOrdCoef)
+print(CoefUniq)
+print(CoefUniqCoef)
+'''
