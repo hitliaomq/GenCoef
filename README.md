@@ -72,12 +72,15 @@ If you use this scripts, please ref the following reference
 In addition, when coding this script, the following reference are ref-ed.
 
 The independent SOECs  and TOECs are taken from: 
+
 [3] BRUGGER K. Pure Modes for Elastic Waves in Crystals. Journal of Applied Physics, 1965,36(3):759-768.
 
 The method for calculating  the TOECs is taken from:  
+
 [4] ZHAO J, WINEY J M, GUPTA Y M. First-principles calculations of second- and third-order elastic constants for single crystals of arbitrary symmetry. PHYSICAL REVIEW B, 2007,75(0941059):94105.
 
 This code now has been a part of [Elastic3rd](https://github.com/hitliaomq/ELASTIC3rd), Please ref:
+
 [5] Mingqing Liao, Yong Liu, Shun-Li Shang, Fei Zhou, et al., Elastic3rd: A tool for calculating third-order elastic constants from first-principles calculations, submitted to *Computer Physics Communication*
 
 ## Author information
