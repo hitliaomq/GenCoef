@@ -1,5 +1,5 @@
 #!python
-
+import elastic3rd.symmetry.gencoef as gencoef
 import symmetry
 import symmetry_stress
 import matplotlib.pyplot as plt
@@ -19,6 +19,8 @@ def read_strainmode(STRAINMODE = "STRAINMODE"):
     return strainmode
 
 def OptimizeSM(dim=6, pN=50, max_iter=200, CrystalType='c1', Ord=3, flag_se='s', flag_fig=1):
+    strainmode = gencoef.get_strainmode(CrystalType=CrystalType, Ord=Ord, flag_se=flag_se)
+    #np.savetxt('INITSM', strainmode)
     my_pso = PSOFit(pN=pN, dim=dim, max_iter=max_iter, CrystalType=CrystalType, Ord=Ord, flag_se=flag_se)
     my_pso.init_Population()
     (fitness, gbest) = my_pso.iterator()
@@ -51,12 +53,13 @@ def fitfun(x, CrystalType='c1', Ord=3, flag_se='s'):
     elif Ord == 4:
         coef = coef_e.coef4
     matrixrank = np.linalg.matrix_rank(coef)
-    print('The rank of the coef matrix is {}'.format(matrixrank))
+    #print(matrixrank)
+    #print('The rank of the coef matrix is {}'.format(matrixrank))
     if matrixrank == get_Nindepen(CrystalType=CrystalType, Ord=Ord):
         y = np.linalg.cond(coef)
     else:
         y = 1e10
-    print('The condition number of the coef matrix is {}'.format(y))
+    #print('The condition number of the coef matrix is {}'.format(y))
     return y
     
 #the part of PSO ref https://blog.csdn.net/ztf312/article/details/75669685
@@ -84,7 +87,7 @@ class PSOFit(object):
         self.Ord = Ord
         self.flag_se = flag_se
 
-    def init_Population(self, Nmin = -10, Nmax = 10, tor=0.5, InitMethod='tor', v_scale=10.0):
+    def init_Population(self, Nmin=-1, Nmax=1, tor=0.5, InitMethod='tor', v_scale=1.0):
         if os.path.exists('INITSM'):
             xtmp = np.loadtxt('INITSM')
             if not xtmp.size == 0:

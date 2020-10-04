@@ -8,12 +8,12 @@
 # 
 
 from optimize_sm import OptimizeSM
-CrystalType = 'c1'
+CrystalType = 'n'
 Ord = 3
-flag_se = 's'
-pN = 10
-max_iter = 20
+flag_se = 'e'
+pN = 20
+max_iter = 50
 
-dim = 6
+dim = 336
 
-OptimizeSM(dim=dim, pN=pN, max_iter=max_iter, CrystalType=CrystalType, Ord=Ord)
+OptimizeSM(dim=dim, pN=pN, max_iter=max_iter, CrystalType=CrystalType, Ord=Ord, flag_se=flag_se)
